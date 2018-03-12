@@ -1,0 +1,148 @@
+{% extends "nav.html" %}
+{% block head %}    <title>Jobs</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap-example.css') }}"/>
+{% endblock %}
+
+{% block content %}
+
+    <main role="main">
+        <div class="bh-sl-container container">
+            <div class="container">
+                <h1 class="bh-sl-title display-3">Enter your postcode</h1>
+                <p class="lead"></p>
+
+                <hr class="my-4">
+
+                <div class="bh-sl-form-container">
+                    <form id="bh-sl-user-location" class="form-inline" action="#" method="get" role="form">
+                        <div class="form-input form-group">
+                            <label for="bh-sl-address">Enter Address or Zip Code:</label>
+                            <input class="form-control" type="text" id="bh-sl-address" name="bh-sl-address"/>
+                        </div>
+                        <select id="bh-sl-maxdistance" name="bh-sl-maxdistance">
+                            <option value="10">10 Miles</option>
+                            <option value="20">20 Miles</option>
+                            <option value="30">30 Miles</option>
+                            <option value="40">40 Miles</option>
+                        </select>
+
+
+                        <button id="bh-sl-submit" class="btn btn-primary" type="submit" role="button">Submit
+                        </button>
+                        <div class="bh-sl-filters-container">
+                            <ul id="category-filters-container1" class="bh-sl-filters">
+                                <li><h3>Categories</h3></li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="jobtype" value="Waiter"> Waiter
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="jobtype" value="Chef"> Chef
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="jobtype" value="Office"> Office
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="jobtype" value="Other"> Other
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <ul id="category-filters-container2" class="bh-sl-filters">
+                                <li><h3>Hours</h3></li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="time" value="Morning"> Morning (9AM-5PM)
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="time" value="Evening"> Evening (5PM-11PM)
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="time" value="Night"> Night (11PM-9AM)
+                                    </label>
+                                </li>
+                            </ul>
+                            <ul id="category-filters-container3" class="bh-sl-filters">
+                                <li><h3>Days</h3></li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="time" value="Weekdays"> Weekdays (9AM-5PM)
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="time" value="Weekends"> Evening (5PM-11PM)
+                                    </label>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div id="bh-sl-map-container" class="bh-sl-map-container">
+                <div class="container-fluid">
+                    <div id="map-results-container" class="row">
+                        <div id="bh-sl-map" class="bh-sl-map col-md-9"></div>
+                        <div class="bh-sl-loc-list col-md-3">
+                            <ul class="list list-unstyled"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block script %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='assets/js/libs/handlebars.min.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeIJ5flPo_rVbO2WCStpVvnyrd92-oDEE&region=GB"></script>
+    <script src="{{ url_for('static', filename='assets/js/plugins/storeLocator/jquery.storeLocator.js') }}"></script>
+
+    <script>
+        $(function () {
+            $('#bh-sl-map-container').storeLocator({
+                'datalocation': 'static/data/locations.json',
+                'mapSettings': {
+                    zoom: 12,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDoubleClickZoom: true,
+                    scrollwheel: false,
+                    navigationControl: false,
+                    draggable: false
+                },
+                maxDistance: true,
+                taxonomyFilters: {
+                    'jobtype': 'category-filters-container1',
+                    'time': 'category-filters-container2',
+                    'days': 'catergory-filter-container3'
+
+                },
+                'infowindowTemplatePath': 'static/assets/js/plugins/storeLocator/templates/infowindow-description.html',
+                'listTemplatePath': 'static/assets/js/plugins/storeLocator/templates/location-list-description.html',
+                'KMLinfowindowTemplatePath': 'static/assets/js/plugins/storeLocator/templates/kml-infowindow-description.html',
+                'KMLlistTemplatePath' : 'static/assets/js/plugins/storeLocator/templates/location-list-description.html'
+
+            });
+        });
+
+    </script>
+    </body>
+    </html>
+
+{% endblock %}
