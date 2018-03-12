@@ -4,6 +4,7 @@ from flask import request
 from flask import send_file
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'ihatelife'
 
 
 @app.route('/', methods = ['GET','POST'])
