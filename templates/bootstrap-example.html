@@ -58,17 +58,17 @@
                                 <li><h3>Hours</h3></li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" name="time" value="Morning"> Morning (9AM-5PM)
+                                        <input type="checkbox" name="hours" value="Morning"> Morning (9AM-5PM)
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" name="time" value="Evening"> Evening (5PM-11PM)
+                                        <input type="checkbox" name="hours" value="Evening"> Evening (5PM-11PM)
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" name="time" value="Night"> Night (11PM-9AM)
+                                        <input type="checkbox" name="hours" value="Night"> Night (11PM-9AM)
                                     </label>
                                 </li>
                             </ul>
@@ -76,12 +76,12 @@
                                 <li><h3>Days</h3></li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" name="time" value="Weekdays"> Weekdays (9AM-5PM)
+                                        <input type="checkbox" name="days" value="Weekdays"> Weekdays
                                     </label>
                                 </li>
                                 <li>
                                     <label>
-                                        <input type="checkbox" name="time" value="Weekends"> Evening (5PM-11PM)
+                                        <input type="checkbox" name="days" value="Weekends"> Evening
                                     </label>
                                 </li>
 
@@ -126,17 +126,17 @@
                     navigationControl: false,
                     draggable: false
                 },
-                maxDistance: true,
                 taxonomyFilters: {
                     'jobtype': 'category-filters-container1',
                     'time': 'category-filters-container2',
-                    'days': 'catergory-filter-container3'
+                    'days': 'category-filter-container3'
 
                 },
                 'infowindowTemplatePath': 'static/assets/js/plugins/storeLocator/templates/infowindow-description.html',
                 'listTemplatePath': 'static/assets/js/plugins/storeLocator/templates/location-list-description.html',
                 'KMLinfowindowTemplatePath': 'static/assets/js/plugins/storeLocator/templates/kml-infowindow-description.html',
-                'KMLlistTemplatePath' : 'static/assets/js/plugins/storeLocator/templates/location-list-description.html'
+                'KMLlistTemplatePath' : 'static/assets/js/plugins/storeLocator/templates/location-list-description.html',
+                'querystringParams' : 'false'
 
             });
         });

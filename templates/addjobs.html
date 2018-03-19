@@ -1,10 +1,23 @@
 {% extends 'nav.html' %}
+{% block head %} {{ super() }} {% endblock %}
 {% block content %}
-<h2>Add jobs here</h2> <br> </<br>
+    <div class = "container">
+<h2>Add jobs here</h2> <br>
+
+    {% from "_formhelpers.html" import render_field %}
+
     <form action="" method="post">
-    <p>
-        {{ form. }}
-    </p>
+    {{ form.name.label }} <br> {{ form.name }} <p>
+        {{ form.time.label }} <br> {{ form.time }} </p>
+    {{ form.jobtype.label }} <br>  {{ form.jobtype }}
+    {{ form.days.label }} <br>  {{ form.days }}
+    {{ form.address.label }} <br>  {{ form.address }} <p> </p>
+    {{ form.address2.label }}  <br> {{ form.address2 }} <p></p>
+        {{ form.city.label }} <br>  {{ form.city }} <p></p>
+        {{ form.state.label }} <br>  {{ form.state }} <p></p>
+        {{ form.web.label }} <br>  {{ form.web }} <p></p>
     </form>
+    </div>
 {% endblock %}
 {% block script %}
+{% endblock %}

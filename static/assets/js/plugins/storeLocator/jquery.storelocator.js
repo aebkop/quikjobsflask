@@ -96,7 +96,7 @@
 		'sortID'                     : 'bh-sl-sort',
 		'taxonomyFiltersContainer'   : 'bh-sl-filters-container',
 		// Templates
-		'infowindowTemplatePath'     : 'static/assets/js/plugins/storeLocator/templates/infowindow-description.html',
+		'infowindowTemplatePath'     : '/assets/js/plugins/storeLocator/templates/infowindow-description.html',
 		'listTemplatePath'           : 'static/assets/js/plugins/storeLocator/templates/location-list-description.html',
 		'KMLinfowindowTemplatePath'  : 'static/assets/js/plugins/storeLocator/templates/kml-infowindow-description.html',
 		'KMLlistTemplatePath'        : 'static/assets/js/plugins/storeLocator/templates/kml-location-list-description.html',
